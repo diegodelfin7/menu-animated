@@ -48,6 +48,10 @@
         <div class="nav-icon">
             <div></div>
         </div>
+        <ul>
+            <li><a class="btn" href="#" id="30">30 enlace</a></li>
+            <li><a class="btn" href="#" id="50">50 enlance</a></li>
+        </ul>
         <script
 			  src="https://code.jquery.com/jquery-2.2.4.js"
 			  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -58,6 +62,12 @@
                     $(this).toggleClass('expanded');
                 });
             });
+
+            $("a").click(function(e){
+                 var id = $(this).attr( "id" );
+                console.log('id selected', id);
+            });
+
         </script>
     </body>
 </html>
