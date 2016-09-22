@@ -6,66 +6,35 @@
             body{
                 background-color :#eee;
             }
-            .nav-icon{
-                margin : 1em;
-                width: 40px;
-            }
-            .nav-icon:after,
-            .nav-icon:before,
-            .nav-icon div{
-                background-color:#fff;
-                -o-border-radius: 3px;
-                -moz-border-radius :3px;
-                -webkit-border-radius:3px;
-                border-radius:3px;
-                content : '';
-                display : block;
-                height :5px;
-                margin :7px 0;
-                -moz-transition : all .2s ease-in-out;
-                -webkit-transition : all .2s ease-in-out;
-                transition: all .2s ease-in-out;
-            }
-
-            .nav-icon.expanded:after{
-                transform: translateY(-12px) rotate(-135deg);
-                -moz-transform: translateY(-12px) rotate(-135deg);
-                -webkit-transform: translateY(-12px) rotate(-135deg);
-            }
-            .nav-icon.expanded:before{
-                transform: translateY(12px) rotate(135deg);
-                -moz-transform: translateY(12px) rotate(135deg);
-                -webkit-transform: translateY(12px) rotate(135deg);
-            }
-            .nav-icon.expanded div{
-                -moz-transform: scale(0);
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
         </style>
     </head>
     <body>
-        <div class="nav-icon">
-            <div></div>
-        </div>
         <ul>
             <li><a class="btn" href="#" id="30">30 enlace</a></li>
             <li><a class="btn" href="#" id="50">50 enlance</a></li>
         </ul>
+        <div id="modal">
+            <a href="#" class="eliminar" onclick="eliminar(this);">delete</a>
+        </div>
         <script
 			  src="https://code.jquery.com/jquery-2.2.4.js"
 			  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 			  crossorigin="anonymous"></script>
         <script>
-            $(function() {
-                $(".nav-icon").click(function(e){
-                    $(this).toggleClass('expanded');
-                });
-            });
 
-            $("a").click(function(e){
+            var eliminar = function (e) {
+                console.log('callback',e);
+                console.log($(e).attr("data-id"));
+                var idAjax = $(e).attr("data-id");
+                console.log('dato para ajax en el modal', idAjax);
+            };
+
+
+            $("a.btn").click(function(e){
                  var id = $(this).attr( "id" );
                 console.log('id selected', id);
+                $("#modal a.eliminar").attr("data-id",id);
+
             });
 
         </script>
